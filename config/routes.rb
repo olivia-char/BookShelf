@@ -9,7 +9,17 @@ Rails.application.routes.draw do
 
   get '/users/quiz/:id' => 'questions#index'
 
+  get '/users/quiz/:id/2' => 'questions#question_2'
+
+  get '/users/quiz/:id/3' => 'questions#question_3'
+
+  get '/users/quiz/:id/4' => 'questions#question_4'
+  
+  get '/users/quiz/:id/5' => 'questions#question_5'
+
   post '/users/:id' => 'results#create'
+
+  delete '/users/logout' => 'users#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -3,7 +3,7 @@
 	src: url(Solena-Regular.otf); 
 }
 
-body {
+body.intro {
 	background-image: url(introImage.jpeg);
 	background-size: 1440px 875px;
     background-repeat: no-repeat;
@@ -72,8 +72,10 @@ body {
 	padding: 20px;
 }
 
-.homepage {
-	background: blue;
+body.homepage {
+	background-image: url(paper.jpg);
+	font-family: Courier New;
+
 }
 
 .navHomePage {
@@ -98,5 +100,37 @@ body {
 	display: inline-block;
 	width: 400px;
 }
+.navHomePage h4 {
+	width: 100px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 25px 0px 0px 875px;
 
+}
+
+.bookRecomend {
+	margin: 160px 0px 0px 0px;
+	height: 500px;
+	width: 1143px;
+	background-color: green;
+	display: block;
+
+}
+
+.bookList {
+	position: relative;
+	width: 560px;
+	height: 325px;
+	display: inline-block;
+	background-color: purple;
+	margin: 25px 11px 0px 0px;
+}
+
+.quiz {
+	position: relative;
+	width: 560px;
+	height: 325px;
+	display: inline-block;
+	background-color: blue;
+}
 

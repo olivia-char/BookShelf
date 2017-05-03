@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id
-  		redirect_to "/users/#{@user.id}"
+      redirect_to "/users/#{@user.id}"
   	else
   		flash[:errors] = ["Incorrect Login Information"]
   		redirect_to '/'
@@ -28,9 +28,14 @@ class UsersController < ApplicationController
   def index
   end
 
+  def destroy
+    reset_session
+    redirect_to '/'
+  end
+  
   private 
   	def newUser_params
-  		params.require(:user).permit(:name, :username, :email, :password, :password_confirmation) 
+  		params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation) 
   	end
 
   	def loginUser_params

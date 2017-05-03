@@ -11,26 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426213841) do
+ActiveRecord::Schema.define(version: 20170502010605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "book_lists", force: :cascade do |t|
+    t.string   "book_1"
+    t.string   "book_2"
+    t.string   "book_3"
+    t.string   "book_4"
+    t.string   "book_5"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "book_lists", ["question_id"], name: "index_book_lists_on_question_id", using: :btree
+  add_index "book_lists", ["user_id"], name: "index_book_lists_on_user_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
+    t.string   "question"
     t.string   "c1"
     t.string   "c2"
     t.string   "c3"
     t.string   "c4"
     t.string   "c5"
-    t.string   "question"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
+    t.string   "result"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.string   "result"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -48,6 +63,8 @@ ActiveRecord::Schema.define(version: 20170426213841) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "book_lists", "questions"
+  add_foreign_key "book_lists", "users"
   add_foreign_key "results", "questions"
   add_foreign_key "results", "users"
 end

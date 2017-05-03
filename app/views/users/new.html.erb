@@ -1,9 +1,9 @@
-<body>
+<body class="intro">
     <div class="navBackground"></div>
     <div class="nav">
         <h1>BookShelf</h1>
         <form action="/users/login" method="post" class="form-inline">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <div class="form-group">
               <input type="email" placeholder="Email Address" class="form-control" id="email" name="email">
             </div>
